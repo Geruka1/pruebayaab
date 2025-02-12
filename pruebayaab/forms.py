@@ -1,5 +1,6 @@
 from django import forms
 
+
 class Formularioyaab(forms.Form):
 
     nombre = forms.CharField(
@@ -16,3 +17,4 @@ class Formularioyaab(forms.Form):
         max_length=10,
         widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Escribe tu numero telefonico', 'type':'tel'})
     )
+

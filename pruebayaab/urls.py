@@ -1,6 +1,12 @@
 from django.urls import path
-from .views import vista_formulario
+from . import views
+from django.contrib.auth import views as auth_views 
 
 urlpatterns = [
-    path('formulario/', vista_formulario, name='formulario'),
+    
+    path('', views.landing, name='landing'),
+    path('login/', auth_views.LoginView.as_view(template_name='pruebayaab/login.html'), name='login'),
+    path('dashboard/', views.dashboard, name='dashboard'),
+    path('formulario/', views.vista_formulario, name='formulario'),
+    path('logout/', auth_views.LogoutView.as_view(), name='logout'),
 ]
