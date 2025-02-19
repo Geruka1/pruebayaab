@@ -21,9 +21,10 @@ from django.contrib.auth import views as auth_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('pruebayaab.urls')), #ruta para acceder a todo lo del formulario
+    path('yaab/', include('pruebayaab.urls')), #ruta para acceder a todo lo del formulario
     path('', views.landing, name='landing'),
     path('login/', auth_views.LoginView.as_view(template_name='login.html'), name='login'),
     path('dashboard/', views.dashboard, name='dashboard'),
     path('accounts/', include('django.contrib.auth.urls')),
+    
 ]

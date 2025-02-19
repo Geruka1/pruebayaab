@@ -33,12 +33,24 @@
         .btn-primary {
             border-radius: 8px;
         }
+
+        .mt-4 {
+            margin-top: 20px;
+        }
     </style>
 </head>
 <body>
     <div class="login-container">
         <h2 class="text-center mb-4">Iniciar Sesión</h2>
-        <form method="post">
+        {% if messages %}
+        <div class="alert alert-danger">
+            {% for message in messages %}
+            <p>{{ message }}</p>
+            {% endfor %}
+        </div>
+        {% endif %}
+
+        <form method="post" action="{% url 'login' %}">
             {% csrf_token %}
             <div class="mb-3">
                 <label for="username" class="form-label">Usuario:</label>
@@ -50,7 +62,14 @@
             </div>
             <button type="submit" class="btn btn-primary w-100">Ingresar</button>
         </form>
+
+        <div class="mt-4 text-center">
+            <p>¿No tienes cuenta? <a href="{% url 'registro' %}" >Regístrate aquí</a></p> <!--Aqui va el template del registro-->  
+        </div>
+
+       
     </div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
